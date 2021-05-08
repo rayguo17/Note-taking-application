@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+.bg-default{
+    background-color: #4699E8;
+    min-height: 95vh;
+    margin-top: 0;
+}   
+.NotesContainer{
+    background-color: antiquewhite;
+    min-height: 90vh;
+    border-radius: 10px;
+} 
+
+.tool-bar{
+    display: flex;
+    margin-right: 10px;
+    padding-top: 10px;
+    justify-content: space-between;
+}
+
+.user-banner{
+    margin-left: 30px;
+    font-size: 50px;
+    font-family: 'Itim', cursive;
+    color: rgb(31, 87, 88);
+}
+.add-note{
+    font-size: 30px;
+    margin-right: 11px;
+}
+.add-note i{
+    margin-left: 1rem;
+    padding-right: 1rem;
+}
+
+.btn3d.btn-default {
+	color: #666666;
+	box-shadow: 0 0 0 1px #ebebeb inset, 0 0 0 2px rgba(255, 255, 255, 0.10) inset, 0 8px 0 0 #BEBEBE, 0 8px 8px 1px rgba(0, 0, 0, .2);
+	background-color: #f9f9f9;
+}
+
+.btn3d.btn-default:active,
+.btn3d.btn-default.active {
+	color: #666666;
+	box-shadow: 0 0 0 1px #ebebeb inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, .1);
+	background-color: #f9f9f9;
+}
+.btn3d.btn-primary {
+	box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #4D5BBE, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+	background-color: #4274D7;
+}
+
+.btn3d.btn-primary:active,
+.btn3d.btn-primary.active {
+	box-shadow: 0 0 0 1px #417fbd inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+	background-color: #4274D7;
+}
+.btn3d.btn-danger {
+	box-shadow: 0 0 0 1px #b93802 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #AA0000, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+	background-color: #D73814;
+}
+
+.btn3d.btn-danger:active,
+.btn3d.btn-danger.active {
+	box-shadow: 0 0 0 1px #b93802 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+	background-color: #D73814;
+}
+.btn3d.btn-warning {
+	box-shadow: 0 0 0 1px #d79a47 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #D79A34, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+	background-color: #FEAF20;
+}
+
+.btn3d.btn-warning:active,
+.btn3d.btn-warning.active {
+	box-shadow: 0 0 0 1px #d79a47 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+	background-color: #FEAF20;
+}
+.card-footer{
+    text-align: right;
+}
+.card-body{
+    height: 180px;
+}
+.Notes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    
+}
+.card{
+    display: inline-block;
+    width: 400px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+}

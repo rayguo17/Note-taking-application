@@ -1,0 +1,108 @@
+<link rel="stylesheet" href="/css/home.css">
+
+<section class="bg-default">
+    <div class="container pt-2">
+        <h2>Welcome to Notey <i class="fas fa-cloud " style="color:white"></i></h2>
+        <div class="NotesContainer ">
+            <div class="tool-bar">
+                {{#with name}}
+                <h2 class="user-banner">Hello {{this}}</h2>
+                {{/with}}
+                <button type="button" data-bs-toggle="modal" data-bs-target="#addNoteModal"
+                    class="add-note btn3d btn btn-default btn-lg">Add a Note<i class="fas fa-plus"></i></button>
+
+            </div>
+
+            <div class="Notes">
+                {{#each notes}}
+                <div class="card" id="note-{{@index}}">
+                    <div class="card-header">
+                        <h3>{{title}}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>{{content}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button"  class="btn btn-primary btn-lg btn3d" data-bs-toggle="modal" data-bs-target="#putNoteModal" id="button-{{@index}}"><i class="far fa-edit"></i></button>
+                        <button type="button" id="delete-{{@index}}" class="btn btn-warning btn-lg btn3d delete-button" ><i
+                                class="far fa-trash-alt"></i></button>
+                    </div>
+                </div>
+                {{/each}}
+                {{!-- <div class="card">
+                    <div class="card-header">
+                        <h3>Shopping List</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>I want to buy something, it only exist in parknshop, but the nearest parknshop is 5 miles
+                            away, should i go and get it?</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-primary btn-lg btn3d"><i class="far fa-edit"></i></button>
+                        <button type="button" class="btn btn-warning btn-lg btn3d"><i
+                                class="far fa-trash-alt"></i></button>
+                    </div>
+                </div> --}}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{{!-- add note modal --}}
+<div class="modal fade" id="addNoteModal" tabindex="-1" aria-labelledby="addNoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNoteModalLabel">Add Note</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/api/notes" method="POST" id="Note-form">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Title:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Content:</label>
+                        <textarea class="form-control" id="message-text" name="content"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" form="Note-form">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- update note modal --}}
+<div class="modal fade" id="putNoteModal" tabindex="-1" aria-labelledby="putNoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="putNoteModalLabel">Edit Note</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/api/notes" method="PUT" id="Edit-note-form">
+                    <div class="mb-3">
+                        <label for="put-note-title" class="col-form-label">Title:</label>
+                        <input type="text" class="form-control" id="put-note-title" name="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="put-note-content" class="col-form-label">Content:</label>
+                        <textarea class="form-control" id="put-note-content" name="content"></textarea>
+                    </div>
+                    <input type="hidden" id="put-note-id">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" form="Edit-note-form">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
