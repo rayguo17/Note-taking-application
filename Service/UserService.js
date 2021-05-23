@@ -1,6 +1,8 @@
 
 var fs = require('fs');
-const { resolve } = require('path');
+const development = require('../knexfile').development;
+const knex = require("knex")(development);
+const TABLE_NAME = "passport_users";
 
 var usersFile = './database/users.json'
 

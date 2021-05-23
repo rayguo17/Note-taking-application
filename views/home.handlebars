@@ -1,20 +1,21 @@
 <link rel="stylesheet" href="/css/home.css">
 
+
 <section class="bg-default">
     <div class="container pt-2">
         <h2>Welcome to Notey <i class="fas fa-cloud " style="color:white"></i></h2>
         <div class="NotesContainer ">
             <div class="tool-bar">
-                {{#with name}}
-                <h2 class="user-banner">Hello {{this}}</h2>
-                {{/with}}
+                
+                <h2 class="user-banner">Hello </h2>
+                
                 <button type="button" data-bs-toggle="modal" data-bs-target="#addNoteModal"
                     class="add-note btn3d btn btn-default btn-lg">Add a Note<i class="fas fa-plus"></i></button>
 
             </div>
 
             <div class="Notes">
-                {{#each notes}}
+                {{!-- {{#each notes}}
                 <div class="card" id="note-{{@index}}">
                     <div class="card-header">
                         <h3>{{title}}</h3>
@@ -28,7 +29,7 @@
                                 class="far fa-trash-alt"></i></button>
                     </div>
                 </div>
-                {{/each}}
+                {{/each}} --}}
                 {{!-- <div class="card">
                     <div class="card-header">
                         <h3>Shopping List</h3>
@@ -95,7 +96,7 @@
                         <label for="put-note-content" class="col-form-label">Content:</label>
                         <textarea class="form-control" id="put-note-content" name="content"></textarea>
                     </div>
-                    <input type="hidden" id="put-note-id">
+                    <input type="hidden" id="put-note-id" name="id">
                 </form>
             </div>
             <div class="modal-footer">
@@ -105,4 +106,5 @@
         </div>
     </div>
 </div>
+<script src="/js/home.js"></script>
 

@@ -6,7 +6,10 @@ const UserRouter = require('./Routes/UserRouter');
 const UserService = require('./Service/UserService');
 const NoteService = require('./Service/NoteService');
 const NoteRouter = require('./Routes/NoteRouter');
-
+const setupSession = require('./util/init-session');
+const passport = require('./passport/index');
+const development = require('./knexfile').development;
+const knex = require('knex')(development);
 
 var app = express();
 let port = 8000;
@@ -15,17 +18,25 @@ let port = 8000;
 app.engine('handlebars', hb({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+//set up session and cookie
+setupSession(app);
+
+//set up passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 //setup static files
 app.use(express.static('public'));
 app.use(express.urlencoded({extended:false}))
+app.use(express.json());
 
 
 //router
-var userService = new UserService();
-var noteService = new NoteService();
+
+var noteService = new NoteService(knex);
 app.use('/', new ViewRouter().router());
-app.use('/users', new UserRouter(userService).router());
-app.use('/api', new NoteRouter(noteService,userService).router());
+// app.use('/users', new UserRouter(userService).router());
+app.use('/api', new NoteRouter(noteService).router());
 
 
 

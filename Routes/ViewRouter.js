@@ -1,6 +1,6 @@
 var express = require('express');
-var basicAuth = require('express-basic-auth');
-
+const passport = require('passport');
+const isLoggedIn = require('../util/guard');
 class ViewRouter {
     router() {
         const router = express.Router();
@@ -9,14 +9,25 @@ class ViewRouter {
         router.get('/', (req, res) => {
             res.render('index')
         });
-        router.get('/home', (req, res) => {
-            console.log('login to home', req.auth)
-            res.render('home')
+        router.get('/home', isLoggedIn,(req, res) => {
+            //console.log('login to home', req.auth)
+            res.render('home');
         });
-        
+        router.post('/login',passport.authenticate('local-login',{
+            successRedirect:'/home',
+            failureRedirect:'/error'
+        }));
+        router.post('/signup',passport.authenticate('local-signup',{
+            successRedirect:'/',
+            failureRedirect:'/error'
+        }))
+        router.get('/error',(req,res)=>{
+            res.send('You are not logged in!');
+        })
         
         return router;
     }
+    
     
     
 }
