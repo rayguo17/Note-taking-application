@@ -3,7 +3,11 @@
 
 <section class="bg-default">
     <div class="container pt-2">
-        <h2>Welcome to Notey <i class="fas fa-cloud " style="color:white"></i></h2>
+        <div class="first-row">
+            <h2>Welcome to Notey <i class="fas fa-cloud " style="color:white"></i></h2>
+            <button class="btn3d btn btn-default btn-primary btn-logout">Log out</button>
+        </div>
+        
         <div class="NotesContainer ">
             <div class="tool-bar">
                 
@@ -68,6 +72,12 @@
                         <label for="message-text" class="col-form-label">Content:</label>
                         <textarea class="form-control" id="message-text" name="content"></textarea>
                     </div>
+                    <div class="mb-3">
+                        <label for="noti-checkbox">Send notification</label>
+                        <input type="checkbox" name="noti" id="noti-checkbox">
+                        <label for="noti-datetime">Date</label>
+                        <input type="datetime-local" id="noti-datetime" name="datetime" disabled>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -107,4 +117,5 @@
     </div>
 </div>
 <script src="/js/home.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 

@@ -15,14 +15,14 @@ class NoteService{
         })
     }
     list(user_id) {
-        return this.knex('notes').where({user_id:user_id}).select('*').then((data)=>{
+        return this.knex('notes').where({user_id:user_id}).select('*').orderBy('id','asc').then((data)=>{
             //console.log('note service',data);
             return data;
         })
     }
     updateNote(id, title, content) {
         return this.knex('notes').update({title:title,content:content}).where({id:id})
-    }
+    } 
     deleteNote(id) {
         return this.knex('notes').where({id:id}).delete();
     }

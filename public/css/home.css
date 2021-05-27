@@ -27,6 +27,9 @@
     font-size: 30px;
     margin-right: 11px;
 }
+.btn-logout{
+    color: #F6F6F6 !important;
+}
 .add-note i{
     margin-left: 1rem;
     padding-right: 1rem;
@@ -92,4 +95,8 @@
     width: 400px;
     margin-bottom: 25px;
     margin-left: 25px;
+}
+.first-row{
+    display: flex;
+    justify-content: space-between;
 }

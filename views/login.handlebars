@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="/css/login.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<div class="container">
+  <div class="welcome">
+    <div class="pinkbox">
+      <!-- 注册 -->
+      <div class="signup nodisplay">
+        <h1>Register</h1>
+        <form autocomplete="off" action="/signup" method="POST">
+          <input type="text" placeholder="Username" name="username">
+          <input type="email" placeholder="Email" name="email">
+          <input type="password" placeholder="Password" name="password">
+          {{!-- <input type="password" placeholder="Confirm Password"> --}}
+          <button class="button submit">Create Account</button>
+        </form>
+      </div>
+
+      <!-- 登录 -->
+      <div class="signin">
+        <h1>Sign In</h1>
+        <form class="more-padding" autocomplete="off" action="/login" method="POST">
+          <input type="text" placeholder="Email" name="username">
+          <input type="password" placeholder="Password" name="password">
+          <button class="buttom sumbit">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="leftbox">
+      <h2 class="title"><span>Note</span>$<br>Taking</h2>
+      <p class="desc">Write down your <span>mind</span></p>
+      <img class="flower smaller" src="/img/login_bg.jpg" />
+      <p class="account">Have an account?</p>
+      <button class="button" id="signin">Login</button>
+    </div>
+
+    <div class="rightbox">
+      <h2 class="title"><span>Note</span>$<br>Taking</h2>
+      <p class="desc">Write down your <span>mind</span></p>
+      {{!-- <img class="flower smaller" src="/img/signup_bg.jpg" /> --}}
+      <ul class="login-ul list-group">
+        <li class="list-group-item"><a href="/auth/github"><i class="fab fa-github"></i>Sign in with github</a></li>
+        <li class="list-group-item"><a href="/auth/google"><i class="fab fa-google"></i> Sign in with google</a></li>
+        <li class="list-group-item"><a href="/auth/facebook"><i class="fab fa-facebook"></i>Sign in with faceboook</i></a></li>
+      </ul>
+      <p class="account">Don't have an account?</p>
+      <button class="button" id="signup">Sign Up</button>
+    </div>
+  </div>
+</div>
+<script src="/js/login.js"></script>

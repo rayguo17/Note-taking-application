@@ -79,5 +79,24 @@ $(function () {
         })
         
     })
+    $('.btn-logout').on('click',(e)=>{
+        let a = document.createElement('a');
+        
+        a.href = '/logout';
+        //console.log('a has been create',a.href)
+        a.click();
+    })
+
+    $('#noti-checkbox').on('change',(e)=>{
+        console.log('click checkbox')
+        // console.log($(e.target).checked);
+        // console.log(e.target.checked);
+        if(e.target.checked){
+            $('#noti-datetime').prop('disabled',false);
+        }else{
+            $('#noti-datetime').prop('disabled',true);
+        }
+    })
+    var socket = io();
     
 })

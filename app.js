@@ -10,7 +10,15 @@ const setupSession = require('./util/init-session');
 const passport = require('./passport/index');
 const development = require('./knexfile').development;
 const knex = require('knex')(development);
+const redis = require('redis');
+const io = require('socket.io')();
+const http = require('http');
 
+
+const redisClient = redis.createClient({
+    host:'127.0.0.1',
+    port:6379
+})
 var app = express();
 let port = 8000;
 
@@ -19,7 +27,7 @@ app.engine('handlebars', hb({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 //set up session and cookie
-setupSession(app);
+setupSession(app,io,redisClient);
 
 //set up passport
 app.use(passport.initialize());
@@ -39,10 +47,15 @@ app.use('/', new ViewRouter().router());
 app.use('/api', new NoteRouter(noteService).router());
 
 
+var server = http.createServer(app);
+io.attach(server);
+io.on('connection',function(socket){
+    console.log('a user join us');
+    console.log('socket session',socket.session)
+})
 
 
-
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`server running at port ${port}`);
 })
 
